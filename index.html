@@ -4,40 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ashgabat Weather</title>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-}
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="weather-container" class="centered">
 </div>
-  <script>
-    const weatherContainer = document.getElementById("weather-container");
-
-function fetchWeather() {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=Ashgabat&appid=<API_KEY>&units=metric`)
-    .then(response => response.json())
-    .then(data => {
-      const temperature = Math.round(data.main.temp);
-      const description = data.weather[0].main;
-
-      weatherContainer.innerHTML = `<h1>${temperature}°C</h1><h2>${description}</h2>`;
-    })
-    .catch(error => {
-      console.error(error);
-    });
-}
-  </script>
 </body>
 </html>
